@@ -2,7 +2,6 @@ package net.diamondden.THIS_Incubator_task3.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,19 +18,7 @@ import net.diamondden.THIS_Incubator_task3.data.Paste.TypeAccess;
 
 @RestController
 @SpringBootApplication
-public class WebManager implements ErrorController {
-
-	@RequestMapping(value = "/error", produces = "application/json")
-	public String error() {
-		JsonObject json = new JsonObject();
-		Tools.jsonPatternError(json, 100, "HTTP error");
-		return json.toString();
-	}
-
-	@Override
-	public String getErrorPath() {
-		return "/error";
-	}
+public class WebManager {
 
 	private static DataManager dataManager;
 

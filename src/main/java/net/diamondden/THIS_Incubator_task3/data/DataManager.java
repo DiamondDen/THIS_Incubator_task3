@@ -37,6 +37,12 @@ public class DataManager {
 		this.dataPasteByKey = new DataWrapper("%s:%s");
 		this.dataPasteInfoById = new DataWrapper("pastes:%d:info");
 		this.dataPasteDataById = new DataWrapper("pastes:%d:data");
+
+		for (int i = 0; i < 10; i++) {
+			Paste paste = new Paste();
+			paste.setKey(TypeAccess.PUBLIC, String.valueOf(i));
+			this.lastTenPaste.add(paste);
+		}
 	}
 
 	/**
@@ -188,12 +194,12 @@ public class DataManager {
 			this.limit = limit;
 		}
 
-		@Override
 		public boolean add(T e) {
 			if (this.limit < this.size() + 1 && this.size() != 0) {
 				this.removeLast();
 			}
-			return super.add(e);
+			super.addFirst(e);
+			return true;
 		}
 	}
 
