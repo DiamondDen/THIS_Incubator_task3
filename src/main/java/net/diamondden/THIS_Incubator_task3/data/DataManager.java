@@ -142,8 +142,8 @@ public class DataManager {
 	}
 
 	private boolean checkPasteExpiry(Paste paste) {
-		try (Jedis jedis = this.jedisPool.getResource()) {
-			if (paste.getExpiry() != -1 && System.currentTimeMillis() > paste.getExpiry()) {
+		if (paste.getExpiry() != -1 && System.currentTimeMillis() > paste.getExpiry()) {
+			try (Jedis jedis = this.jedisPool.getResource()) {
 				for (TypeAccess typeAccess : TypeAccess.values()) {
 					this.dataPasteByKey.del(jedis, typeAccess.getTableName(), paste.getKey(typeAccess));
 				}
