@@ -30,6 +30,11 @@ export redis_password=
 
 java -jar ./THIS_Incubator_task3-0.0.1-SNAPSHOT.jar
 ```
+Так же можно указать параметр noNeedToCompressData, который отключить сжатие данных
+```bash
+java -DnoNeedToCompressData=true -jar ...
+```
+
 WebServer запускается по умолчанию на порту 8080.
 
 ## Новые пасты
