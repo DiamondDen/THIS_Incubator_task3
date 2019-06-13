@@ -26,7 +26,6 @@ cd ./target
 ```bash
 export redis_host=127.0.0.1
 export redis_port=6379
-export redis_password=
 
 java -jar ./THIS_Incubator_task3-0.0.1-SNAPSHOT.jar
 ```
