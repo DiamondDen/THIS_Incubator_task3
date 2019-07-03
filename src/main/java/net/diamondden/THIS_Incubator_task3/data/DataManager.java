@@ -37,12 +37,6 @@ public class DataManager {
 		this.dataPasteByKey = new DataWrapper("%s:%s");
 		this.dataPasteInfoById = new DataWrapper("pastes:%d:info");
 		this.dataPasteDataById = new DataWrapper("pastes:%d:data");
-
-		for (int i = 0; i < 10; i++) {
-			Paste paste = new Paste();
-			paste.setKey(TypeAccess.PUBLIC, String.valueOf(i));
-			this.lastTenPaste.add(paste);
-		}
 	}
 
 	/**
