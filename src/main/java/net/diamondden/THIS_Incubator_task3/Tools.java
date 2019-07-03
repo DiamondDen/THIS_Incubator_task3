@@ -17,11 +17,11 @@ public class Tools {
 
 	public static String generateKey(int length) {
 		Random r = ThreadLocalRandom.current();
-		StringBuilder build = new StringBuilder();
-		for (int i = 0, n = keyPattern.length; i < length; i++) {
-			build.append(keyPattern[r.nextInt(n)]);
+		char[] result = new char[length];
+		for (int i = 0, n = keyPattern.length; i < length; i++) { 
+			result[i] = keyPattern[r.nextInt(n)];
 		}
-		return build.toString();
+		return new String(result);
 	}
 
 	public static int getEnv(String name, int def) {
@@ -34,8 +34,7 @@ public class Tools {
 		return def;
 	}
 
-	public static String getEnv(String name, String def) {
-		String value = System.getenv(name);
-		return value == null ? def : value;
+	public static String getEnv(String key, String def) {
+		return System.getenv().getOrDefault(key, def);
 	}
 }
